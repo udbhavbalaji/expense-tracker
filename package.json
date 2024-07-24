@@ -1,0 +1,26 @@
+{
+  "name": "expense-tracker",
+  "version": "0.0.1",
+  "description": "A simple expense and income tracking cli tool, with the ability to generate reports and summaries.",
+  "main": "index.js",
+  "bin": {
+    "tracker": "./bin/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/udbhavbalaji/expense-tracker.git"
+  },
+  "author": "udbhavbalaji",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "inquirer": "^10.1.2",
+    "moment": "^2.30.1"
+  }
+}
