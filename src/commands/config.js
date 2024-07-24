@@ -1,10 +1,13 @@
 import { Command } from "commander";
 import { readConfig } from "../config/config.js";
 
+
+// Defining the 'config' command
 const configCommand = new Command('config')
     .description("Interact with the app's configuration settings.");
 
 
+// Defining sub-commands under the 'config' command to interact with the app's configuration settings
 configCommand.command('show')
     .description("Shows the app's configuration.")
     .action(() => {

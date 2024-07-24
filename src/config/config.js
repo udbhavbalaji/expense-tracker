@@ -4,12 +4,15 @@ import os from 'os';
 import path from "path";
 import { checkPermissionError, deleteDirs, storeSudoUserInfo, createDirs } from "../utils/configUtils.js";
 
+
+// Defining config filepaths
 export const homeDir = os.homedir();
 const configFolder = path.join(homeDir, '.config');
 export const configDir = path.join(configFolder,'expense-tracker')
 export const configFilePath = path.join(configDir,'config.json');
 
 
+// Defining functions that are used to initialize/configure the app
 export function readConfig() {
     if (fs.existsSync(configFilePath)) {
         const rawData = fs.readFileSync(configFilePath);
@@ -19,7 +22,7 @@ export function readConfig() {
 }
 
 
-export function writeConfig(config) {
+function writeConfig(config) {
     if (!fs.existsSync(configDir)) {
         try {
             fs.mkdirSync(configDir, { recursive: true });
@@ -117,7 +120,6 @@ export async function configureApp(defaultChoiceFlag) {
     ], chosenConfig.userInfo.uid, chosenConfig.userInfo.gid);
 
     console.log('Configuration complete!');
-
 }
 
 

@@ -2,14 +2,15 @@ import path from 'path';
 import { createObjectCsvWriter } from "csv-writer";
 import { Command } from 'commander';
 import { currentConfig } from '../config/config.js';
-import inquirer from 'inquirer';
-import { getTodaysDate, dateOneYearAgo, validateDate, validateFloat, confirmAction } from '../utils/commandUtils.js';
+import { getTodaysDate, validateDate, validateFloat, confirmAction } from '../utils/commandUtils.js';
 
 
+// Defining the 'add' command
 const addCommand = new Command('add')
     .description('Adds a transaction. <Need to add better description after implementing category.>');
 
 
+// Defining functions that perform the operations outlined in the add command
 function addExpense(record, filepath) {
     const csvWriter = createObjectCsvWriter({
         path: path.join(filepath, 'expenses.csv'),
@@ -52,6 +53,7 @@ function addIncome(record, filepath) {
 }
 
 
+// Defining sub-commands under the 'add' command to add an income/expense
 addCommand.command('expense')
     .description('Adds an Expense.')
     .argument('<merchant>', 'Name of the merchant where money was spent.')

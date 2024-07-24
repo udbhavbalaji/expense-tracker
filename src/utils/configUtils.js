@@ -1,5 +1,7 @@
 import fs from 'fs';
 
+
+// Defining utility functions are used to configure the app
 export function storeSudoUserInfo() {
     return {
         uid: process.env.SUDO_UID,
@@ -17,7 +19,6 @@ export function checkPermissionError(err) {
     }   
 }
 
-
 export function createDirs(dirs, uid, gid) {
     for (let i = 0; i < dirs.length; i++) {
         try {
@@ -28,7 +29,6 @@ export function createDirs(dirs, uid, gid) {
         }
     }
 }
-
 
 export function deleteDirs(dirs) {
     for (let i = 0; i < dirs.length; i++) {
@@ -42,12 +42,3 @@ export function deleteDirs(dirs) {
         }
     }
 }
-// export function deleteDirs(dirs) {
-//     for (let i = 0; i < dirs.length; i++) {
-//         try {
-//             fs.rmSync(dirs[i], { recursive: true });
-//         } catch (err) {
-//             checkPermissionError(err);
-//         }
-//     }
-// }
